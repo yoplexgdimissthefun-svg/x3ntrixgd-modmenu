@@ -1,0 +1,17 @@
+{
+    "geode": "v5.7.1",
+    "gd": {
+        "win": "2.2081",
+        "android": "2.2081"
+    },
+    "id": "x3ntrix.modmenu",
+    "name": "X3ntrix Mod Menu",
+    "version": "1.0.0",
+    "developer": "X3ntrixGD",
+    "description": "A custom Geometry Dash mod menu built with Geode.",
+    "repository": "",
+    "tags": [
+        "utility",
+        "menu"
+    ]
+}
