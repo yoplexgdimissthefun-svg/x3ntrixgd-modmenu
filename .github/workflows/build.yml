@@ -1,0 +1,35 @@
+name: Build Geode Mod
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y cmake ninja-build git curl unzip
+
+      - name: Setup Geode CLI
+        run: |
+          curl -L https://geode-sdk.org/cli/install.sh | bash
+          echo "$HOME/.geode/bin" >> $GITHUB_PATH
+
+      - name: Configure
+        run: geode project build --configure
+
+      - name: Build
+        run: geode project build --release
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: geode-mod
+          path: build
